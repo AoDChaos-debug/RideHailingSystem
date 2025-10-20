@@ -1,5 +1,3 @@
-package com.mycompany.ride.hailingsystem;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -260,7 +258,7 @@ public class RideHailingSystem {
         
         // loop through all bookings for the detailed list
         for (BookingInfo b : book_records) {
-            String statusStr = b.status ? "Active" : "Deleted";  // Status as string
+            String statusStr = b.status ? "Active" : "Deleted";
             
             // print each booking's details
             System.out.printf("%-5d %-22s %-12s %-12s %-17s %-17s %-12.2f %-12.2f %-10s%n",
@@ -272,7 +270,6 @@ public class RideHailingSystem {
 // class to represent a single booking. Stores all details as fields.
 class BookingInfo {
     
-    // Final fields (cannot be changed after creation) for booking data
     final String passenger_name;
     final String date;
     final String time;
@@ -280,9 +277,9 @@ class BookingInfo {
     final String dropoff_loc;
     final double distance_km;
     final double fare;
-    boolean status;  // Mutable field for soft-deletion (true = active, false = deleted)
+    boolean status;  // mutable field for soft-deletion
     
-    // Constructor: Initializes a new booking with given details
+    // constructor, initializes a new booking with given details
     public BookingInfo(String passenger_name, String date, String time, String pickup_loc, String dropoff_loc, double distance_km, double fare) {
         this.passenger_name = passenger_name;
         this.date = date;
@@ -291,10 +288,9 @@ class BookingInfo {
         this.dropoff_loc = dropoff_loc;
         this.distance_km = distance_km;
         this.fare = fare;
-        this.status = true;  // New bookings start as active
+        this.status = true;
     }
     
-    // Override toString() for a readable string representation (useful for debugging)
     @Override
     public String toString() {
         return String.format("Booking: %s on %s at %s from %s to %s, Distance: %.2f km, Fare: %.2f",
